@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# initalize environments and functions
+source "$OPENSHIFT_REPO_DIR/.openshift/action_hooks/env"
+
+# Sync vendor dir
+if [ -d "$OPENSHIFT_DATA_DIR/vendor" ]; then
+  mkdir -p "$OPENSHIFT_REPO_DIR/vendor"
+  rsync -ap --delete "$OPENSHIFT_DATA_DIR/vendor/" "$OPENSHIFT_REPO_DIR/vendor/"
+fi
+
+# Sync config
+if [ -d "$OPENSHIFT_REPO_DIR/app/config/production" ]; then
+  cp -f "$OPENSHIFT_REPO_DIR/app/config/production/*" "$OPENSHIFT_REPO_DIR/app/config/"
+fi
+
+# Install composer
+if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+    curl -s https://getcomposer.org/installer | php -- --install-dir=$OPENSHIFT_DATA_DIR
+fi
