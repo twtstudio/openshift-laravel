@@ -4,7 +4,7 @@
 source "$OPENSHIFT_REPO_DIR/.openshift/action_hooks/env"
 
 # Install dependencies WHEN NOT hot deploy OR vendor dir DOES NOT EXIST
-if [[ -f "$OPENSHIFT_REPO_DIR/.openshift/markers/hot_deploy" ]] || [[ ! -d "$OPENSHIFT_REPO_DIR/vendor" ]]; then
+if [[ ! -f "$OPENSHIFT_REPO_DIR/.openshift/markers/hot_deploy" ]] || [[ ! -d "$OPENSHIFT_REPO_DIR/vendor" ]]; then
   # Install dependencies
   unset GIT_DIR
   cd $OPENSHIFT_REPO_DIR

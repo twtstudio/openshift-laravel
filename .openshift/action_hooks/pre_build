@@ -11,7 +11,7 @@ fi
 
 # Sync config
 if [ -d "$OPENSHIFT_REPO_DIR/app/config/production" ]; then
-  cp -f "$OPENSHIFT_REPO_DIR/app/config/production/*" "$OPENSHIFT_REPO_DIR/app/config/"
+  cp -f "$OPENSHIFT_REPO_DIR/app/config/production/"*.php "$OPENSHIFT_REPO_DIR/app/config/"
 fi
 
 # Install composer
