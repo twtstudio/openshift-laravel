@@ -1,12 +1,10 @@
 # Laravel quickstarts on Openshift
 
-## Create app using this repo
+## Requirement(s)
 
-### Use rhc
+- Openshift Composer Cartridge: https://github.com/twtstudio/openshift-composer
 
-`rhc create-app xxxxxx php-5.3 -n yyyy --from-code git://github.com/twtstudio/openshift-laravel.git`
-
-### Openshift origin quickstart
+## Openshift origin quickstart
 
 ```
 {"quickstart": {
@@ -14,13 +12,27 @@
   "name": "Laravel 4.1",
   "website": "http://www.laravel.com",
   "initial_git_url": "git://github.com/twtstudio/openshift-laravel.git",
-  "cartridges": ["php-5"],
+  "cartridges": ["php-5", "composer"],
   "summary": "Laravel is a PHP web application framework with expressive, elegant syntax.",
-  "tags": ["php", "framework", "mysql"],
+  "tags": ["php", "framework", "mysql", "laravel", "composer"],
   "admin_tags": []
 }}
 ```
+## First commit
 
-## Deploy first time
+Once your laravel app was created, you need to rename `composer.json.example` to `composer.json` to make your app work.
 
-Comment L7 like `exit 0;` in `.openshift/action_hooks/build` to install dependencies for laravel.
+```
+$ git mv composer.json.example
+$ git add composer.json
+$ git commit -m 'enable composer'
+$ git push -u origin master
+```
+
+## Markers
+
+- markers for composer: https://github.com/twtstudio/openshift-composer#markers
+
+## I'm unable too add the openshift composer cartridge
+
+Please checkout branch `raw` to quickstart your laravel app without a composer cartridge.
