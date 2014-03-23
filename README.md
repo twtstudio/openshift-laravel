@@ -20,11 +20,10 @@
 ```
 ## First commit
 
-Once your laravel app was created, you need to rename `composer.json.example` to `composer.json` to make your app work.
+Once your laravel app was created, you need to remove marker `composer_off` to make your app work.
 
 ```
-$ git mv composer.json.example
-$ git add composer.json
+$ git rm .openshift/markers/composer_off
 $ git commit -m 'enable composer'
 $ git push -u origin master
 ```
