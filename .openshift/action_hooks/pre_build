@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # Sync config
-if [ -d "$OPENSHIFT_REPO_DIR/app/config/production" ]; then
-  cp -f "$OPENSHIFT_REPO_DIR/app/config/production/"*.php "$OPENSHIFT_REPO_DIR/app/config/"
-fi
+#if [ -d "$OPENSHIFT_REPO_DIR/app/config/production" ]; then
+#  cp -f "$OPENSHIFT_REPO_DIR/app/config/production/"*.php "$OPENSHIFT_REPO_DIR/app/config/"
+#fi
